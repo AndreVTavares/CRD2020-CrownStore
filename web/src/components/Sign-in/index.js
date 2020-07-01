@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import './styles.scss';
 
+import FormInput from '../Form-input';
+
 const SignIn = () => {
 
     const [email, setEmail] = useState('');
@@ -24,22 +26,25 @@ const SignIn = () => {
             <span>Sign in with your email and password.</span>
 
             <form onSubmit={handleSubmitForm}>
-                <input 
+                
+                <FormInput 
                     name='email' 
                     value={email} 
                     type="email" 
-                    onChange={event => setEmail(event.target.value)}
+                    handleChange={event => setEmail(event.target.value)}
+                    label='email'
                     required
                 />
-                <label htmlFor="email">Email</label>
-                <input 
+    
+                <FormInput 
                     name='password' 
                     value={password} 
                     type="password"
-                    onChange={event => setPassword(event.target.value)} 
+                    handleChange={event => setPassword(event.target.value)}
+                    label='password' 
                     required
                 />
-                <label htmlFor="password">Password</label>
+                
 
                 <input type="submit" value="Submit Form"/>
             </form>
