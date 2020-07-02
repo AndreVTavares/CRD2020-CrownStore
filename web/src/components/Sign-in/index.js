@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './styles.scss';
 
 import FormInput from '../Form-input';
+import CustomButton from '../Custom-button';
 
 const SignIn = () => {
 
@@ -46,7 +47,9 @@ const SignIn = () => {
                 />
                 
 
-                <input type="submit" value="Submit Form"/>
+                <CustomButton type="submit">
+                   Sign In
+                </CustomButton>
             </form>
         </div>
     )
