@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import './styles.scss';
 
@@ -12,9 +12,6 @@ const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
-    useEffect(() => {
-
-    }, []);
 
     const handleSubmitForm = (event) => {
         event.preventDefault();
