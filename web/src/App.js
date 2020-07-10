@@ -8,6 +8,8 @@ import './App.css';
 import HomePage from './pages/Homepage';
 import ShopPage from './pages/ShopPage';
 import SignInUpPage from './pages/SignInUp';
+import CheckoutPage from './pages/CheckoutPage';
+
 import Header from './components/Header';
 
 import { setCurrentUser } from './redux/user/user.actions';
@@ -64,6 +66,7 @@ class App extends React.Component {
             (<Redirect to='/'/>) : 
             (<SignInUpPage/>)} 
           />
+          <Route exact path='/checkout' component={CheckoutPage}/>
         </Switch>
       </div>
     );
