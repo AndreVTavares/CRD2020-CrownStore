@@ -4,9 +4,8 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from 'redux-saga';
 
-import { fetchCollectionsStart } from './shop/shop.sagas';
-
 import rootReducer from './root-reducer';
+import rootSaga from './root-saga';
 
 const persistConfig = {
   key: 'root',
@@ -29,7 +28,7 @@ export const store = createStore(
   applyMiddleware(...middlewares)
 );
 
-sagaMiddleware.run(fetchCollectionsStart)
+sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);
 
