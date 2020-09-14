@@ -6,25 +6,16 @@ import './styles.scss';
 import FormInput from '../Form-input';
 import CustomButton from '../Custom-button';
 
-import { auth, signInWithGoogle } from '../../firebase/firebase';
+import { googleSignInStart, emailSignInStart } from '../../redux/user/user.actions';
 
-import { googleSignInStart } from '../../redux/user/user.actions';
-
-const SignIn = ({ googleSignInStart }) => {
+const SignIn = ({ googleSignInStart,  emailSignInStart }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmitForm = async (event) => {
     event.preventDefault();
 
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-
-      setPassword('');
-      setEmail('');
-    } catch (error) {
-      console.log(error);
-    }
+    emailSignInStart(email, password)
   };
 
   return (
@@ -69,6 +60,8 @@ const SignIn = ({ googleSignInStart }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   googleSignInStart: () => dispatch(googleSignInStart()),
+  emailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password })),
+
 });
 
 export default connect(null, mapDispatchToProps)(SignIn);
