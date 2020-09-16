@@ -25,7 +25,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     const createdAt = new Date();
 
     try {
-      userRef.set({
+      await userRef.set({
         displayName,
         email,
         createdAt,
